@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        form{
+            line-height: 2em;
+        }
+        form>input. form>select{
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .valid{
+        color: green;
+            }
+            form>input:valid+.valid{
+            display: inline;
+            }
+            form>input:invalid+.valid{
+            display: none;
+            }
+            .medium
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form Example Week 12</title>
+</head>
+<body>
+    <h3>Account Registration</h3>
+<form action="registration.php" method="POST">
+    Account:<input type="text" required pattern="[A-Za-z0-9]{8,12}" maxlength="12" > 
+    <span class="valid">valid</span><br>
+    E-mail:<input type="email" required>
+    <span class="valid">ok</span><br>
+    Sex:
+    Male<input type="radio" name="gender" value="male" required> 
+    Female<input type="radio" name="gender" value="male" required>
+    <br>
+    Blood Type:
+    <select required>
+        <option value="A">A</option> 
+        <option value="B">B</option> 
+        <option value="AB">AB</option> 
+        <option value="0">0</option> 
+    </select>
+    <br>
+    <input type="submit" value="Submit">
+    </form>
+    <script>
+
+        let timeout;
+    
+        
+    
+        let password = document.getElementById('PassEntry')
+        let strengthBadge = document.getElementById('StrengthDisp')
+    
+       
+    
+        let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
+        let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
+        
+        function StrengthChecker(PasswordParameter){
+          
+    
+            if(strongPassword.test(PasswordParameter)) {
+                strengthBadge.style.backgroundColor = "green"
+                strengthBadge.textContent = 'Strong'
+            } else if(mediumPassword.test(PasswordParameter)){
+                strengthBadge.style.backgroundColor = 'blue'
+                strengthBadge.textContent = 'Medium'
+            } else{
+                strengthBadge.style.backgroundColor = 'red'
+                strengthBadge.textContent = 'Weak'
+            }
+        }
+       
+    
+        password.addEventListener("input", () => {
+    
+          
+    
+            strengthBadge.style.display= 'block'
+            clearTimeout(timeout);
+    
+           
+    
+            timeout = setTimeout(() => StrengthChecker(password.value), 500);
+    
+           
+    
+            if(password.value.length !== 0){
+                strengthBadge.style.display != 'block'
+            } else{
+                strengthBadge.style.display = 'none'
+            }
+        });
+        </script>
+</body>
+</html>
