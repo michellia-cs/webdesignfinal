@@ -1,0 +1,47 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial scale=1.0">
+<title>Color changing boc</title>
+<script type="text/javascript">
+	alert('Hi!')
+	function red(ele){
+		if(ele.style.background=='red')
+        {
+			ele.style.background='blue'
+		}else}
+			ele.style.background='red'
+</script>
+	<style>
+		.this{
+			display: inline-flex;
+		}
+		#box1{
+			height: 300px;
+			width: 300px;
+			cursor: pointer;
+			background: green;
+		}
+		#box2{
+			height: 300px;
+			width: 300px;
+			cursor: pointer;
+			background: lightyellow;
+		}
+		#box3{
+			height: 300px;
+			width: 300px;
+			cursor: pointer;
+			background: orangered;
+		}
+	</style>
+</head>
+<body>
+	<label class="this">
+		<div id="box1" onmouseover="this.style.background='green' " onmouseout="this.style.background='blue'"></div>
+		<div id="box2" onmouseover="this.style.background='lightyellow'" onmouseout="this.style.background='green'"></div>
+		<div id="box3" onmouseover="this.style.background='orangered'" onmouseout="this.style.background='gray'"></div>
+	</label>
+</body>
+</html>
+	<button onclick="alert('Have a Nice Day!')"> Click me! </button>
+	<div id="box" onmouseover="this.style.background='blue'" onmouseout="this.style.background='lightyellow'">
+	</div>
